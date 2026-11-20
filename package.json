@@ -1,0 +1,27 @@
+{
+  "name": "chat-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node --env-file-if-exists=.env dist/server.js",
+    "db:migrate": "node --env-file-if-exists=.env dist/db-setup.js migrate",
+    "db:seed": "node --env-file-if-exists=.env dist/db-setup.js seed",
+    "test:integration": "node --env-file-if-exists=.env --test test/integration.test.mjs"
+  },
+  "dependencies": {
+    "express": "^5.3.0",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^22.0.0",
+    "@types/pg": "^8.15.0",
+    "typescript": "^5.9.3"
+  }
+}
